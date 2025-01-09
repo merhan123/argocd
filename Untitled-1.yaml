@@ -1,0 +1,1 @@
+curl -X POST http://a82048aa6075c492fbf25aef26733a7a-1425154989.us-east-1.elb.amazonaws.com/api/process -H "Content-Type: application/json" -d '{"input": "Hello, Kubernetes!"}'
