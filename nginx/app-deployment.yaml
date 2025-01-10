@@ -21,7 +21,7 @@ spec:
       - name: flask
         image: miranafea/simple-flask-app
         ports:
-        - containerPort: 5000
+        - containerPort: 80
         env:
         - name: HOSTNAME
           valueFrom:
