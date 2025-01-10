@@ -4,7 +4,7 @@ metadata:
   name: flask-app
   
 spec:
-  replicas: 3  # Use multiple replicas to test load balancing
+  replicas: 2  # Use multiple replicas to test load balancing
   selector:
     matchLabels:
       app: flask
@@ -19,9 +19,9 @@ spec:
     spec:
       containers:
       - name: flask
-        image: miranafea/simple-flask-app
+        image: miranafea/simple-flask
         ports:
-        - containerPort: 5000
+        - containerPort: 80
         env:
         - name: HOSTNAME
           valueFrom:
