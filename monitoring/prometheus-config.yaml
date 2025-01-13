@@ -50,18 +50,3 @@ data:
           - action: drop
             regex: '(kube-dns|metrics-server|kubernetes)'
             source_labels: [__meta_kubernetes_service_name]
-
-      - job_name: 'ingress-metrics'
-        metrics_path: /metrics
-        static_configs:
-          - targets:
-              - test.com   # Replace with your Ingress host
-      - job_name: 'flask-metrics'
-        metrics_path: /metrics
-        static_configs:
-          - targets: flask-service.default.svc.cluster.local
-
-      - job_name: 'frontend-metrics'
-        metrics_path: /frontend-metrics
-        static_configs:
-          - targets: frontend-service.default.svc.cluster.local
