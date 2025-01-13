@@ -26,3 +26,18 @@ spec:
             name: frontend-service
             port:
               number: 80
+      - path: /metrics
+        pathType: Prefix
+        backend:
+          service:
+            name: flask-service
+            port:
+              number: 80
+      - path: /frontend-metrics
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-service
+            port:
+              number: 80
+
