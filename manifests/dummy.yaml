@@ -1,29 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-app
+  name: dummy-app
   
 spec:
   replicas: 1  # Use multiple replicas to test load balancing
   selector:
     matchLabels:
-      app: flask
+      app: dummy
   template:
     metadata:
       labels:
-        app: flask
+        app: dummy
       annotations:
         prometheus.io/scrape: "true"
-        prometheus.io/path: "/test"
+        prometheus.io/path: "/"
         prometheus.io/port: "80"
     spec:
       containers:
-      - name: flask
-        image: miranafea/simple-flask
+      - name: dummy
+        image: busybox
         ports:
         - containerPort: 80
-        env:
-        - name: HOSTNAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name  # Gets the pod name dynamically
+        
