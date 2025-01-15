@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-app
+  namespace: default  # Specify the namespace here
 spec:
   replicas: 1  # Use multiple replicas to test load balancing
   selector:
@@ -13,7 +14,7 @@ spec:
         app: flask
       annotations:
         prometheus.io/scrape: "true"
-        #prometheus.io/path: "/http-metrics"
+        # prometheus.io/path: "/http-metrics"  # Uncomment if metrics are exposed on a specific path
         prometheus.io/port: "80"
     spec:
       containers:
