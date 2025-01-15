@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
+  namespace: default  # Specify the namespace here
   labels:
     app: frontend
 spec:
