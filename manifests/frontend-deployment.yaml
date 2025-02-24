@@ -6,6 +6,10 @@ metadata:
   namespace: default  # Specify the namespace here
   labels:
     app: frontend
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "80"
 spec:
   replicas: 1
   selector:
@@ -15,9 +19,6 @@ spec:
     metadata:
       labels:
         app: frontend
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "80"
     spec:
       containers:
       - name: frontend

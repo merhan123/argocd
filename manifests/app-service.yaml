@@ -3,6 +3,10 @@ kind: Service
 metadata:
   name: flask-service
   namespace: default  # Specify the namespace here
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "80"
 spec:
   selector:
     app: flask
