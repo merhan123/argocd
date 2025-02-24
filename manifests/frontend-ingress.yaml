@@ -17,7 +17,14 @@ spec:
           service:
             name: flask-service
             port:
-              number: 80
+              number: 5000
+      - path: /metrics
+        pathType: Prefix
+        backend:
+          service:
+            name: flask-service
+            port:
+              number: 5000
       - path: /
         pathType: Prefix
         backend:
