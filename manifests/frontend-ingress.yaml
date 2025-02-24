@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: test.com
+  - host: testcom
     http:
       paths:
       - path: /test
@@ -17,18 +17,28 @@ spec:
           service:
             name: flask-service
             port:
-              number: 5000
+              number: 80
       - path: /metrics
         pathType: Prefix
         backend:
           service:
             name: flask-service
             port:
-              number: 5000
+              number: 80
+  - host: frontendbackend
+    http:
+      paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: frontend-service
+            name: frontend
             port:
               number: 80
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 8000

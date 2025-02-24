@@ -1,15 +1,10 @@
-# frontend-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: default  # Specify the namespace here
+  namespace: default
   labels:
     app: frontend
-  annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/path: "/metrics"
-    prometheus.io/port: "80"
 spec:
   replicas: 1
   selector:
@@ -21,6 +16,7 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: frontend
-        image: miranafea/frontend-app
-      
+        - name: frontend
+          image: miranafea/frontend:latest
+          ports:
+            - containerPort: 80

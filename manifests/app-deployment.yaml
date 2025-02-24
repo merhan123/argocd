@@ -5,10 +5,10 @@ metadata:
   namespace: default  # Specify the namespace here
   labels:
         app: flask
-  annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/path: "/metrics"
-    prometheus.io/port: "5000"
+  # annotations:
+  #   prometheus.io/scrape: "true"
+  #   prometheus.io/path: "/metrics"
+  #   prometheus.io/port: "5000"
 spec:
   replicas: 1  # Use multiple replicas to test load balancing
   selector:
@@ -16,6 +16,10 @@ spec:
       app: flask
   template:
     metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "5000"
       labels:
         app: flask
     spec:
