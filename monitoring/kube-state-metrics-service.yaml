@@ -9,8 +9,7 @@ spec:
   ports:
     - name: http-metrics
       port: 8080
-      targetPort: http-metrics
+      targetPort: metrics
   selector:
     app: kube-state-metrics
   type: ClusterIP
-
