@@ -11,8 +11,8 @@ COPY requirements.txt /app/requirements.txt
 # Install Flask
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 80
-EXPOSE 80
+# Match the Flask application port
+EXPOSE 5000
 
 # Start Flask app
 CMD ["python", "/app/app.py"]
